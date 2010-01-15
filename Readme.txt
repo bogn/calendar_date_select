@@ -7,7 +7,7 @@ http://code.google.com/p/calendardateselect/
 "See a demo here":http://electronicholas.com/calendar
 
 == Installation
-* script/plugin install git://github.com/ronald/calendar_date_select.git
+* script/plugin install git@github.com:stereosupersonic/calendar_date_select.git
 * if you're using jrails it should work out of the box
 * otherwise copy calendar_date_select.jquery.js from the plugin's dir to /public/javascripts/calendar_date_select/
 
