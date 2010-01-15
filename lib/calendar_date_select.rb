@@ -26,8 +26,8 @@ if Object.const_defined?(:Rails) && File.directory?(Rails.root.to_s + "/public")
   if cds_files.any?
     CalendarDateSelect.lib = cds_files.first[/calendar_date_select\.([^\/]*)\.js/, 1]
   else
-    jrails_dir = Dir[File.join(RAILS_ROOT, %w[vendor plugins jrails])].first
-    CalendarDateSelect.lib = 'jquery' if jrails_dir
+    jquery = Dir[File.join(RAILS_ROOT, %w[vendor plugins jrails])].first.try(:any?) || Dir.glob(RAILS_ROOT + '/public/javascripts/jquery*.js').first
+    CalendarDateSelect.lib = 'jquery' if jquery
     
     ['/public', '/public/javascripts/calendar_date_select', '/public/stylesheets/calendar_date_select', '/public/images/calendar_date_select', '/public/javascripts/calendar_date_select/locale'].each do |dir|
       source = File.dirname(__FILE__) + "/../#{dir}"
