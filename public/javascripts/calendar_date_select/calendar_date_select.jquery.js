@@ -2,6 +2,14 @@
 // Questions, comments, bugs? - see the project page: http://code.google.com/p/calendardateselect
 if (typeof jQuery == 'undefined') alert("CalendarDateSelect Error: jQuery could not be found. Please make sure that your application's layout includes jquery.js (.g. <%= javascript_include_tag :defaults %>) *before* it includes calendar_date_select.js (.g. <%= calendar_date_select_includes %>).");
 
+jQuery(function(){
+    set = $('.calendar_date_select_input');
+    set.blur(function() {
+        var value=$(this).val();
+        $(this).val(value.replace(/^(\d{2})\.?(\d{2})\.?(20|)(\d{2})$/, "$1.$2.20$4"));
+    });
+});
+
 function $w(string) { return string.split(' '); }
 var _translations = {
   "OK": "OK",

@@ -102,6 +102,7 @@ module CalendarDateSelect::FormHelpers
     javascript_options.delete(:format)
 
     options[:id] ||= name
+    options.merge!(:class => 'calendar_date_select_input')
     tag = javascript_options[:hidden] || javascript_options[:embedded] ?
       hidden_field_tag(name, value, options) :
       text_field_tag(name, value, options)
@@ -138,7 +139,7 @@ module CalendarDateSelect::FormHelpers
       else
         nil
       end
-
+    options.merge!(:class => 'calendar_date_select_input')
     tag = ActionView::Helpers::InstanceTag.new_with_backwards_compatibility(object, method, self, options.delete(:object))
     calendar_date_select_output(
       tag.to_input_field_tag( (javascript_options[:hidden] || javascript_options[:embedded]) ? "hidden" : "text", options),
