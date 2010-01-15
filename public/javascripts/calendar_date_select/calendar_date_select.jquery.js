@@ -259,8 +259,9 @@ var _translations = {
 		      this.month_select.val(m);
 		      
 		      var e = this.year_select.element; 
+		         if (e) { 
 		      if (this.flexibleYearRange() && (!(this.year_select.val(y)) || e.selectedIndex <= 1 || e.selectedIndex >= e.options.length - 2 )) this.populateYearRange();
-		      
+		      }
 		      this.year_select.val(y);
 		      
 		    } else {
