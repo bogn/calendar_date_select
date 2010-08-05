@@ -1,9 +1,9 @@
 require "rubygems"
 
-require 'spec'
+require 'rspec'
 
-gem 'activesupport', "~> 2.3.5"
-gem 'actionpack', ">= 2.2.0"
+gem 'activesupport', "3.0.0.rc"
+gem 'actionpack', "3.0.0.rc"
 
 require 'active_support'
 require 'action_pack'

@@ -50,6 +50,11 @@ module CalendarDateSelect
       :date => "%Y-%m-%d",
       :time => " %H:%M",
       :javascript_include => "format_db"
+    },
+    :german => {
+      :date => "%d.%m.%Y",
+      :time => " %I:%M",
+      :javascript_include => "format_german"
     }
   }
 
@@ -87,6 +92,14 @@ module CalendarDateSelect
   def self.format=(format)
     raise "CalendarDateSelect: Unrecognized format specification: #{format}" unless FORMATS.has_key?(format)
     @calendar_date_select_format = FORMATS[format]
+  end
+  
+  def self.lib
+    @lib ||= 'prototype'
+  end
+
+  def self.lib=(v)
+    @lib = v
   end
 
   def self.date_format_string(time = false)

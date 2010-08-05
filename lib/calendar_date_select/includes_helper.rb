@@ -8,7 +8,7 @@ module CalendarDateSelect::IncludesHelper
   # returns an array of javascripts needed for the selected locale, date_format, and calendar control itself.
   def calendar_date_select_javascripts(options = {})
     options.assert_valid_keys(:locale)
-    files = ["calendar_date_select/calendar_date_select"]
+    files = ["calendar_date_select/calendar_date_select.#{CalendarDateSelect.lib}.js"]
     files << "calendar_date_select/locale/#{options[:locale]}" if options[:locale]
     files << "calendar_date_select/#{CalendarDateSelect.format[:javascript_include]}" if CalendarDateSelect.format[:javascript_include]
     files
@@ -23,7 +23,10 @@ module CalendarDateSelect::IncludesHelper
     options.assert_valid_keys(:style, :locale)
     options[:style] ||= args.shift
     
-    javascript_include_tag(*calendar_date_select_javascripts(:locale => options[:locale])) + "\n" +
-    stylesheet_link_tag(*calendar_date_select_stylesheets(:style => options[:style])) + "\n"
+    html = javascript_include_tag(*calendar_date_select_javascripts(:locale => options[:locale])) + "\n"
+    unless options[:style] === false 
+      html += stylesheet_link_tag(*calendar_date_select_stylesheets(:style => options[:style])) + "\n"
+    end
+    html
   end
 end

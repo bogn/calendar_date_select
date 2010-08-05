@@ -102,6 +102,7 @@ module CalendarDateSelect::FormHelpers
     javascript_options.delete(:format)
 
     options[:id] ||= name
+    options.merge!(:class => 'calendar_date_select_input')
     tag = javascript_options[:hidden] || javascript_options[:embedded] ?
       hidden_field_tag(name, value, options) :
       text_field_tag(name, value, options)
@@ -142,7 +143,7 @@ module CalendarDateSelect::FormHelpers
           nil
         end
       end
-
+    options.merge!(:class => 'calendar_date_select_input')
     tag = ActionView::Helpers::InstanceTag.new_with_backwards_compatibility(object, method, self, options.delete(:object))
     calendar_date_select_output(
       tag.to_input_field_tag( (javascript_options[:hidden] || javascript_options[:embedded]) ? "hidden" : "text", options),
@@ -202,18 +203,20 @@ module CalendarDateSelect::FormHelpers
     end
 
     def calendar_date_select_output(input, image, options = {}, javascript_options = {})
+      prev = CalendarDateSelect.lib == 'jquery' ? 'prev()' : 'previous()'
       out = input
       if javascript_options[:embedded]
         uniq_id = "cds_placeholder_#{(rand*100000).to_i}"
         # we need to be able to locate the target input element, so lets stick an invisible span tag here we can easily locate
         out << content_tag(:span, nil, :style => "display: none; position: absolute;", :id => uniq_id)
-        out << javascript_tag("new CalendarDateSelect( $('#{uniq_id}').previous(), #{options_for_javascript(javascript_options)} ); ")
+        id_prefix = CalendarDateSelect.lib == 'jquery' ? "#" : ""
+        out << javascript_tag("new CalendarDateSelect( $('#{id_prefix}#{uniq_id}').#{prev}, #{options_for_javascript(javascript_options)} ); ")
       else
         out << " "
         out << image_tag(image,
-            :onclick => "new CalendarDateSelect( $(this).previous(), #{options_for_javascript(javascript_options)} );",
+            :onclick => "new CalendarDateSelect( $(this).#{prev}, #{options_for_javascript(javascript_options)} );",
             :style => 'border:0px; cursor:pointer;',
-			:class=>'calendar_date_select_popup_icon')
+              :class=>'calendar_date_select_popup_icon')
       end
       out
     end
