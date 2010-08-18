@@ -31,15 +31,15 @@ module CalendarDateSelect
       namespace :calendar do
         desc "Install assets required by calendar_date_select gem"
         task :install do
-          cds_files = Dir.glob(RAILS_ROOT + '/public/javascripts/calendar_date_select/calendar_date_select.*js')
+          cds_files = Dir.glob(Rails.root + '/public/javascripts/calendar_date_select/calendar_date_select.*js')
           if cds_files.any?
             CalendarDateSelect.lib = cds_files.first[/calendar_date_select\.([^\/]*)\.js/, 1]
           else
-            jquery = Dir[File.join(RAILS_ROOT, %w[vendor plugins jrails])].first.try(:any?) || Dir.glob(RAILS_ROOT + '/public/javascripts/jquery*.js').first
+            jquery = Dir[File.join(Rails.root, %w[vendor plugins jrails])].first.try(:any?) || Dir.glob(Rails.root + '/public/javascripts/jquery*.js').first
             CalendarDateSelect.lib = 'jquery' if jquery
 
             Files.each do |f|
-              source = File.join(File.dirname(__FILE__) + "..", f)
+              source = File.join(File.dirname(__FILE__) + "/..", f)
               dest = File.join(Rails.root, f)
               FileUtils.mkdir_p(dest, :verbose => true)
               files = Dir.glob(source+'/*.*')
