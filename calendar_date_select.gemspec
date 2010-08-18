@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   s.files = [
     ".gitignore",
      ".rspec",
-     ".rvmrc",
      "History.txt",
      "MIT-LICENSE",
      "Manifest.txt",
@@ -76,7 +75,7 @@ Gem::Specification.new do |s|
      "spec/calendar_date_select/includes_helper_spec.rb",
      "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/timcharper/calendar_date_select}
+  s.homepage = %q{http://github.com/locksmithdon/calendar_date_select}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
