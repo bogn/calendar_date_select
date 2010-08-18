@@ -7,7 +7,7 @@ begin
   Jeweler::Tasks.new do |gemspec|
     gemspec.name = "calendar_date_select"
     gemspec.version = File.read("VERSION").strip
-    gemspec.summary = "Calendar date picker for rails"
+    gemspec.summary = "A decendent of the great calendar_date_select project."
     gemspec.description = "Calendar date picker for rails"
     gemspec.email = ""
     gemspec.homepage = "http://github.com/timcharper/calendar_date_select"

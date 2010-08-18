@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Shih-gian Lee", "Enrique Garcia Cota (kikito)", "Tim Charper", "Lars E. Hoeg"]
-  s.date = %q{2010-03-29}
+  s.date = %q{2010-08-17}
   s.description = %q{Calendar date picker for rails}
   s.email = %q{}
   s.extra_rdoc_files = [
@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".gitignore",
+     ".rspec",
+     ".rvmrc",
      "History.txt",
      "MIT-LICENSE",
      "Manifest.txt",
@@ -37,13 +39,15 @@ Gem::Specification.new do |s|
      "lib/calendar_date_select/includes_helper.rb",
      "public/blank_iframe.html",
      "public/images/calendar_date_select/calendar.gif",
-     "public/javascripts/calendar_date_select/calendar_date_select.js",
+     "public/javascripts/calendar_date_select/calendar_date_select.jquery.js",
+     "public/javascripts/calendar_date_select/calendar_date_select.prototype.js",
      "public/javascripts/calendar_date_select/format_american.js",
      "public/javascripts/calendar_date_select/format_danish.js",
      "public/javascripts/calendar_date_select/format_db.js",
      "public/javascripts/calendar_date_select/format_euro_24hr.js",
      "public/javascripts/calendar_date_select/format_euro_24hr_ymd.js",
      "public/javascripts/calendar_date_select/format_finnish.js",
+     "public/javascripts/calendar_date_select/format_german.js",
      "public/javascripts/calendar_date_select/format_hyphen_ampm.js",
      "public/javascripts/calendar_date_select/format_iso_date.js",
      "public/javascripts/calendar_date_select/format_italian.js",
@@ -54,11 +58,13 @@ Gem::Specification.new do |s|
      "public/javascripts/calendar_date_select/locale/fi.js",
      "public/javascripts/calendar_date_select/locale/fr.js",
      "public/javascripts/calendar_date_select/locale/it.js",
+     "public/javascripts/calendar_date_select/locale/ja.js",
      "public/javascripts/calendar_date_select/locale/nl.js",
      "public/javascripts/calendar_date_select/locale/pl.js",
      "public/javascripts/calendar_date_select/locale/pt.js",
      "public/javascripts/calendar_date_select/locale/ru.js",
      "public/javascripts/calendar_date_select/locale/sl.js",
+     "public/javascripts/calendar_date_select/locale/sv.js",
      "public/stylesheets/calendar_date_select/blue.css",
      "public/stylesheets/calendar_date_select/default.css",
      "public/stylesheets/calendar_date_select/green.css",
@@ -73,8 +79,8 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/timcharper/calendar_date_select}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Calendar date picker for rails}
+  s.rubygems_version = %q{1.3.7}
+  s.summary = %q{A decendent of the great calendar_date_select project.}
   s.test_files = [
     "spec/calendar_date_select/calendar_date_select_spec.rb",
      "spec/calendar_date_select/form_helpers_spec.rb",
@@ -86,9 +92,10 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
     else
     end
   else
   end
 end
+
