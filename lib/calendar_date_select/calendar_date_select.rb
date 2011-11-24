@@ -53,7 +53,7 @@ module CalendarDateSelect
     },
     :german => {
       :date => "%d.%m.%Y",
-      :time => " %I:%M",
+      :time => " %H:%M",
       :javascript_include => "format_german"
     }
   }
